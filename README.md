@@ -1,10 +1,11 @@
 # IndexSorter
- 
+
+<B>Description:</B><BR>
 Reference implementation for IndexSorting algorithm and compare the runtime with quick sort. <BR><BR>
 
 Index sorting is an sorting algorithm what is working on set of distinct natural numbers and can deliver better runtime performance then quicksort in case of the range of the numbers in the set is bellow million.<BR><BR>
  
-How to run:<BR>
+<B>How to run reference implementation:</B><BR>
 Download the /bin/IndexSorter.jar <BR>
 Call: java -jar  IndexSorter.jar param1 param2 param3 param4<BR><BR>
 Parameters: <BR>
@@ -13,7 +14,18 @@ Parameters: <BR>
  param3: range of the natural numeric numbers (like 1000)<BR>
  param4: print statistic only and skip the array printouts. (like true)<BR>
 
-Algorithm execution by a sample <BR>
+<B>Algoritm with pseudocode:</B><BR>
+array a; // sortable array<BR>
+array b; // helper array<BR>
+n = length(a) // length of the sortable array<BR>
+max = 0  // maximum value in the sortable array<BR>
+Loop  i = 1 .. n { if a[i] > max then max = a[i] }   // look for maximum<BR>
+b = new array[max]                                   // helper array creation<BR>
+Loop  i = 1 .. n { b[a[i]] = true }                  // set the true by value as index <BR>
+pos = 0 <BR>
+Loop  i = 1 .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable array with position pointer<BR>
+
+<B>Algorithm execution by a sample </B><BR>
  1. Sample to sort [8, 5, 3, 7] <BR>
  2. Create helper boolean array where length of the array is the maximum number in the sample (8): <BR>
  [false, false, false, false, false, false, false, false]<BR>
@@ -22,7 +34,7 @@ Algorithm execution by a sample <BR>
  4. Loop over the helper array and write back to the index value to the original array left to right if the helper array contains true in the index position<BR>
  [3, 5, 7, 8]<BR>
  
- Formal analysis: <BR>
+ <B>Formal analysis:</B> <BR>
  Sort an array of n distinct elements, quicksort takes O( n log n ) time in best case and O ( n2 ) in worst case<BR>
  Index sorting needs three loops over the the array<BR>
  1. Selecting the maximum element: n step<BR>
