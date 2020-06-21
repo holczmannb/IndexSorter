@@ -32,4 +32,4 @@ Algoritm execution by a sample <BR>
  The time is always linear and O ( 3 n ) in every case.<BR>
  n = 1000 then QuickSort and IndexSort both need 3000 steps in best case, but Quicksort is always worse in non best cases.<BR>
 
- 
+ Index sorter show better statistic if the size of the sample is bigger.
