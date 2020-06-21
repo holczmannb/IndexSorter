@@ -3,7 +3,7 @@
 <B>Description:</B><BR><BR>
 Reference implementation for IndexSorting algorithm and compare the runtime with quick sort. <BR><BR>
 
-Index sorting is an sorting algorithm what is working on set of distinct natural numbers and can deliver better runtime performance then quicksort in case of the range of the numbers in the set is bellow million.<BR><BR>
+Index sorting is an sorting algorithm what is working on set of distinct natural numbers and can deliver better runtime performance then quicksort in many cases.<BR><BR>
  
 <B>How to run reference implementation:</B><BR><BR>
 Download the /bin/IndexSorter.jar <BR>
