@@ -44,4 +44,31 @@ Loop  i = 1 .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable arr
  The time is always linear and O ( 3 n ) in every case.<BR>
  n = 1000 then QuickSort and IndexSort both need 3000 steps in best case, but Quicksort is always worse in non best cases.<BR>
 
- Index sorter show better statistic if the size of the sample is bigger.
+<B>Statistics:</B> <BR><BR>
+
+ Index sorter show better execution time in case of big array sizes.
+<Table>
+<TR><TH>Number of Sample</TH><TH>Size of array</TH><TH>Number intervall 1..n</TH><TH>QuickSort Win</TH><TH>IndexSorter Win</TH></TR>
+<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	81</TD><TD>	19</TD></TR>
+<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	68</TD><TD>	12</TD></TR>
+<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	75</TD><TD>	25</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	42</TD><TD>	58</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	47</TD><TD>	53</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	43</TD><TD>	57</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	55</TD><TD>	45</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	52</TD><TD>	48</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	43</TD><TD>	57</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	1</TD><TD>	99</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	5</TD><TD>	95</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	3</TD><TD>	97</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	9</TD><TD>	91</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	13</TD><TD>	87</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	12</TD><TD>	88</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	0</TD><TD>	100</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	1</TD><TD>	99</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	0</TD><TD>	100</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	2</TD><TD>	98</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	0</TD><TD>	100</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	0</TD><TD>	100</TD></TR>
+<TR><TD>10</TD><TD>	100000</TD><TD>	1000000</TD><TD>0</TD><TD>	10</TD></TR>
+</TABLE>
