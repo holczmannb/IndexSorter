@@ -8,8 +8,10 @@ How to run:<BR>
 Download the the /bin/IndexSorter.jar <BR>
 Call: java -jar  IndexSorter.jar param1 param2 <BR><BR>
 Parameters: <BR>
- param1: size of the array what will be sorted (like 100)<BR>
- param2: range of the natural numeric numbers (like 1000)<BR>
+ param1: number of samples to be generated (like 5) <BR>
+ param2: size of the array what will be sorted (like 100)<BR>
+ param3: range of the natural numeric numbers (like 1000)<BR>
+ param4: print statistic ony and skip the array printouts. (like true)<BR>
 
 Algoritm execution by a sample <BR>
  1. Sample to sort [8, 5, 3, 7] <BR>
