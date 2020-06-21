@@ -6,7 +6,7 @@ Index sorting is an sorting algorithm what is working on set of distinct natural
  
 How to run:<BR>
 Download the /bin/IndexSorter.jar <BR>
-Call: java -jar  IndexSorter.jar param1 param2 <BR><BR>
+Call: java -jar  IndexSorter.jar param1 param2 param3 param4<BR><BR>
 Parameters: <BR>
  param1: number of samples to be generated (like 5) <BR>
  param2: size of the array what will be sorted (like 100)<BR>
