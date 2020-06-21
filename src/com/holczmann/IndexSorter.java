@@ -87,18 +87,22 @@ public class IndexSorter {
 	 * @param args: size of the array as int; range of sortable number as int 
 	 */
 	public static void main(String[] args) {
-		// Default size and range
+		// Default size, range and print the sample
 		int size = 1000;
 		int range = 10000;
+		boolean statisticOnly = false;
 		
 		// Read the input parameters
 		if (args.length > 0) {
 		    try {
 		        size = Integer.parseInt(args[0]);
 		        range = Integer.parseInt(args[1]);
+		        statisticOnly = Boolean.parseBoolean(args[2]);
 		    } catch (NumberFormatException e) {
 		        System.err.println("Argument" + args[0] + " must be an integer.");
-		        System.exit(1);
+		        System.err.println("Argument" + args[1] + " must be an integer.");
+		        System.err.println("Argument" + args[2] + " must be an boolean.");
+		        System.exit(1);        
 		    }
 		}
 		
@@ -106,21 +110,26 @@ public class IndexSorter {
 		// Sample Generation
 		int[] originalSample = new int[size];
 		IndexSorter.generateSample(originalSample, range);
-		System.out.println("Sample (size:" + size + " / intervall: " + range + "):"  + Arrays.toString(originalSample));
+		System.out.println("Sample generation started...");
+		System.out.println("Sample generated (size:" + size + " / intervall: " + range + ") ");
+		if (!statisticOnly) System.out.println(Arrays.toString(originalSample));
 		
 		// QuickSort
 		int[] a = originalSample.clone();
 		
 		long runTimeQuick = IndexSorter.guicksort(a);
 		
-		System.out.println("QuickSort (" + runTimeQuick +"ns)"  + Arrays.toString(a));
+		System.out.println("QuickSort (" + runTimeQuick +"ns) ");
+		if (!statisticOnly) System.out.println(Arrays.toString(a));
+				
 	
 		// IndexSort
 		a = originalSample.clone();
 		
 		long runTimeIndex = IndexSorter.indexsort(a);
 		
-		System.out.println("IndexSort (" + runTimeIndex +"ns)" + Arrays.toString(a));
+		System.out.println("IndexSort (" + runTimeIndex +"ns) ");
+		if (!statisticOnly) System.out.println(Arrays.toString(a));
 		long percentage = ((runTimeQuick - runTimeIndex) * 100) / runTimeQuick;
 		System.out.println("Runtime reduction (QuickSort - IndexSort / QuickSort) : " + percentage + "%");
 	}
