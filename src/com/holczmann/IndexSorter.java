@@ -94,7 +94,7 @@ public class IndexSorter {
 		int size = 100;
 		int range = 1000;
 		int numberOfSamples = 10;
-		boolean statisticOnly = true;
+		boolean statisticOnly = false;
 		int quickWin = 0;
 		int indexWin = 0;
 		
