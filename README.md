@@ -3,7 +3,7 @@
 <B>Description:</B><BR><BR>
 Reference implementation for IndexSorting algorithm and compare the runtime with quick sort. <BR><BR>
 
-Index sorting is an sorting algorithm what is working on set of distinct natural numbers and can deliver better runtime performance than quicksort in many cases.<BR>
+Index sorting is an sorting algorithm what works on set of distinct natural numbers and can deliver better runtime performance than quicksort in many cases. This is not a generic sorting algorithm but works very effectively with positive unique integer values what is used in many business scenario<BR>
  
 <B>How to run reference implementation:</B><BR><BR>
 Download the /bin/IndexSorter.jar <BR>
@@ -78,4 +78,4 @@ Loop  i = 1 .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable arr
  2. Runtime depends on the maximum value in the array<BR>
  3. It can work with negative numbers with transforming the values to pozitive by adding the minimal values to each element <BR>
  4. It can work with real numbers with transforming the values to integer whole number with multiplication by 10s. <BR> 
- 5. Better reprezentation of the helper array to avid big size array (memory usage and loop size). The represenation is godo for natural business numbers becasue the values in the helper array are 1 bits only. 
+ 5. Better reprezentation of the helper array to avid big size array (memory usage and loop size). The represenation is good for natural business numbers becasue the values in the helper array are 1 bits only. 
