@@ -44,8 +44,7 @@ Loop  i = 1 .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable arr
  The time is always linear and O ( 2n + max ) in every case.<BR>
  n = 1000 then QuickSort needs 3000 steps and IndexSort both need 2000 + maximum value steps in best case.<BR>
 
-<B>Statistics:</B> <BR><BR>
-
+<B>Statistics:</B> <BR>
  Index sorter show better execution time in case of big array sizes.
 <Table>
 <TR><TH>Number of Sample</TH><TH>Size of array</TH><TH>Number intervall 1..n</TH><TH>QuickSort Win</TH><TH>IndexSorter Win</TH></TR>
@@ -73,7 +72,7 @@ Loop  i = 1 .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable arr
 <TR><TD>10</TD><TD>	100000</TD><TD>	1000000</TD><TD>0</TD><TD>	10</TD></TR>
 </TABLE>
 
-<B>Disadvantages and improvement oportunities</B> <BR><BR>
+<BR><B>Disadvantages and improvement oportunities</B> <BR>
 
  1. It works only with distinct values in the array<BR>
  2. Runtime depends on the maximum value in the array<BR>
