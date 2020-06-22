@@ -38,7 +38,7 @@ Loop  i = min .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable a
  <B>Formal analysis:</B> <BR><BR>
  Sort an array of n distinct elements, quicksort takes O( n log n ) time in best case and O ( n2 ) in worst case.<BR>
  Index sorting needs three loops over the the array.<BR>
- 1. Selecting the maximum element: n step.<BR>
+ 1. Selecting the maximum and minimum element: n step.<BR>
  2. Setting the helper array value: n step.<BR>
  3. Writing back the index values to original: (max - min) step, where max and min are the maximum and minimum values in the array.<BR>
  
