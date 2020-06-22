@@ -3,7 +3,7 @@
 <B>Description:</B><BR><BR>
 Reference implementation for IndexSorting algorithm and compare the runtime with quick sort. <BR><BR>
 
-Index sorting is an sorting algorithm what works on set of distinct natural numbers and can deliver better runtime performance than quicksort in many cases. This is not a generic sorting algorithm but works very effectively with positive unique integer values what is used in many business scenario<BR>
+Index sorting is an sorting algorithm what works on set of distinct natural numbers and can deliver better runtime performance than quicksort in many cases. This is not a generic sorting algorithm but works very effectively with positive unique integer values what is used in many business scenario.<BR>
  
 <B>How to run reference implementation:</B><BR><BR>
 Download the /bin/IndexSorter.jar <BR>
@@ -31,15 +31,15 @@ Loop  i = 1 .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable arr
  [false, false, false, false, false, false, false, false]<BR>
  3. Use the number from input array as index and set true by this index in the helper array. <BR>
  [false, false, true, false, true, false, true, true]<BR>
- 4. Loop over the helper array and write back to the index value to the original array left to right if the helper array contains true in the index position<BR>
+ 4. Loop over the helper array and write back to the index value to the original array left to right if the helper array contains true in the index position.<BR>
  [3, 5, 7, 8]<BR>
  
  <B>Formal analysis:</B> <BR><BR>
- Sort an array of n distinct elements, quicksort takes O( n log n ) time in best case and O ( n2 ) in worst case<BR>
- Index sorting needs three loops over the the array<BR>
- 1. Selecting the maximum element: n step<BR>
- 2. Setting the helper array value: n step<BR>
- 3. Writing back the index values to original: max step, where max is the maximum value in the array<BR>
+ Sort an array of n distinct elements, quicksort takes O( n log n ) time in best case and O ( n2 ) in worst case.<BR>
+ Index sorting needs three loops over the the array.<BR>
+ 1. Selecting the maximum element: n step.<BR>
+ 2. Setting the helper array value: n step.<BR>
+ 3. Writing back the index values to original: max step, where max is the maximum value in the array.<BR>
  
  The time is always linear and O ( 2n + max ) in every case.<BR>
  n = 1000 then QuickSort needs 3000 steps and IndexSort both need 2000 + maximum value steps in best case.<BR>
@@ -74,8 +74,8 @@ Loop  i = 1 .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable arr
 
 <BR><B>Disadvantages and improvement oportunities</B> <BR>
 
- 1. It works only with distinct values in the array<BR>
- 2. Runtime depends on the maximum value in the array<BR>
- 3. It can work with negative numbers with transforming the values to pozitive by adding the minimal values to each element <BR>
+ 1. It works only with distinct values in the array.<BR>
+ 2. Runtime depends on the maximum value in the array.<BR>
+ 3. It can work with negative numbers with transforming the values to pozitive by adding the minimal values to each element.<BR>
  4. It can work with real numbers with transforming the values to integer whole number with multiplication by 10s. <BR> 
  5. Better reprezentation of the helper array to avid big size array (memory usage and loop size). The represenation is good for natural business numbers becasue the values in the helper array are 1 bits only. 
