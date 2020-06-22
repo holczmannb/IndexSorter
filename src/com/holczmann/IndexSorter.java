@@ -28,10 +28,13 @@ public class IndexSorter {
 	public static long indexsort(int[] a) {
 		long startTime = System.nanoTime();
 
-		// Search for the maximal number in the array
+		// Search for the maximal and minimal number in the array
 		int maxItem = 0;
+		int minItem = Integer.MAX_VALUE;
+		
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] > maxItem) maxItem = a[i];
+			if (a[i] < minItem) minItem = a[i];
 		}
 				
 		// Create helper array. Size is the maximal number from the input.
@@ -44,7 +47,7 @@ public class IndexSorter {
 		
 		// Loop over the helper array and use the index as value and set back into the original array.
 		int pointer = 0;
-		for (int i = 0; i < b.length; i++) {
+		for (int i = minItem; i < b.length; i++) {
 			if (b[i]) {
 				a[pointer] = i;
 				pointer++;
@@ -147,7 +150,7 @@ public class IndexSorter {
 			if (!statisticOnly)
 				System.out.println(Arrays.toString(a));
 			long percentage = ((runTimeQuick - runTimeIndex) * 100) / runTimeQuick;
-			System.out.println("Runtime reduction (QuickSort - IndexSort / QuickSort) : " + percentage + "%");
+			System.out.println("Runtime reduction (QuickSort - IndexSort / QuickSort) : " + percentage + "% (" + (runTimeQuick - runTimeIndex) + "ns)" );
 			
 			if (runTimeQuick > runTimeIndex) indexWin++; else quickWin++;		
 		}// for
