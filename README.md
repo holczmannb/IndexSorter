@@ -43,7 +43,7 @@ Loop  i = min .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable a
  3. Writing back the index values to original: (max - min) step, where max and min are the maximum and minimum values in the array.<BR>
  
  The time is always linear and O ( 2n + (max - min) ) in every case.<BR>
- n = 1000 then QuickSort needs 3000 steps and IndexSort both need 2000 + (maximum - minimum) value steps in best case.<BR>
+ n = 1000 then QuickSort needs 3000 steps in best case. IndexSort needs 2000 + (maximum - minimum value) steps in every case.<BR>
 
 <B>Statistics:</B> <BR>
  Index sorter show better execution time in case of big array sizes.
