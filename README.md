@@ -1,7 +1,7 @@
 # IndexSort
 
 <B>Description:</B><BR><BR>
-Reference implementation for IndexSort algorithm and compare the runtime with quick sort and the liner time counting sort. <BR><BR>
+Reference implementation for IndexSort algorithm and compare the runtime with quick sort and the linear time counting sort. <BR><BR>
  QuickSort: https://en.wikipedia.org/wiki/Quicksort<Br>
  CountingSort: https://opendatastructures.org/ods-java/11_2_Counting_Sort_Radix_So.html<BR>
 
