@@ -68,10 +68,17 @@ public class IndexSorter {
 	public static long countsort(int[] a) {
 		long startTime = System.nanoTime();
 	
-		CountSorter.countSort(a);
+		int[] b = CountSorter.countSort(a);
 		
 		long finishTime = System.nanoTime();
 		long runTime = finishTime - startTime;
+		
+		// Copy the sorted elements into original array
+		for (int i = 0; i < a.length; i++) {
+			a[i] = b[i];
+		}
+		
+		
 		return runTime;
 	}
 	
@@ -109,8 +116,8 @@ public class IndexSorter {
 	 */
 	public static void main(String[] args) {
 		// Default size, range and print the sample
-		int size = 10;
-		int range = 100;
+		int size = 1000;
+		int range = 10000;
 		int numberOfSamples = 100;
 		boolean statisticOnly = false;
 		int quickWin = 0;

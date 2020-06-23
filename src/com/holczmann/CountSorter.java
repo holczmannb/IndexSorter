@@ -8,7 +8,7 @@ package com.holczmann;
  */
 public class CountSorter {
 	
-	public static void countSort(int[] array) {
+	public static int[] countSort(int[] array) {
 		int size = array.length;
 		int[] output = new int[size + 1];
 
@@ -42,10 +42,7 @@ public class CountSorter {
 			count[array[i]]--;
 		}
 
-		// Copy the sorted elements into original array
-		for (int i = 0; i < size; i++) {
-			array[i] = output[i];
-		}
+		return output;
 	}
 
 }
