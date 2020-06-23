@@ -61,6 +61,21 @@ public class IndexSorter {
 	}
 	
 	/**
+	 * Reference implementation of count sort
+	 * @param a: array as in/out parameter
+	 * @return runtime of the sorting
+	 */
+	public static long countsort(int[] a) {
+		long startTime = System.nanoTime();
+	
+		CountSorter.countSort(a);
+		
+		long finishTime = System.nanoTime();
+		long runTime = finishTime - startTime;
+		return runTime;
+	}
+	
+	/**
 	 * Fill array with random distinct numbers
 	 * @param a: array as in/out parameter
 	 * @param range: interval of natural numeric number 
@@ -94,12 +109,13 @@ public class IndexSorter {
 	 */
 	public static void main(String[] args) {
 		// Default size, range and print the sample
-		int size = 100;
-		int range = 1000;
-		int numberOfSamples = 10;
+		int size = 1000;
+		int range = 10000;
+		int numberOfSamples = 100;
 		boolean statisticOnly = false;
 		int quickWin = 0;
 		int indexWin = 0;
+		int countWin = 0;
 		
 		// Read the input parameters
 		if (args.length > 0) {
@@ -141,6 +157,15 @@ public class IndexSorter {
 			if (!statisticOnly)
 				System.out.println(Arrays.toString(a));
 
+			// CountSort
+			a = originalSample.clone();
+
+			long runTimeCount= IndexSorter.countsort(a);
+
+			System.out.println("CountSort (" + runTimeCount + "ns) ");
+			if (!statisticOnly)
+					System.out.println(Arrays.toString(a));
+			
 			// IndexSort
 			a = originalSample.clone();
 
@@ -149,11 +174,16 @@ public class IndexSorter {
 			System.out.println("IndexSort (" + runTimeIndex + "ns) ");
 			if (!statisticOnly)
 				System.out.println(Arrays.toString(a));
-			long percentage = ((runTimeQuick - runTimeIndex) * 100) / runTimeQuick;
-			System.out.println("Runtime reduction (QuickSort - IndexSort / QuickSort) : " + percentage + "% (" + (runTimeQuick - runTimeIndex) + "ns)" );
 			
-			if (runTimeQuick > runTimeIndex) indexWin++; else quickWin++;		
+			//long percentage = ((runTimeQuick - runTimeIndex) * 100) / runTimeQuick;
+			//System.out.println("Runtime reduction (QuickSort - IndexSort / QuickSort) : " + percentage + "% (" + (runTimeQuick - runTimeIndex) + "ns)" );
+			
+			if (runTimeQuick < runTimeIndex && runTimeQuick < runTimeCount) quickWin++;	
+			if (runTimeIndex < runTimeQuick && runTimeIndex < runTimeCount) indexWin++;	
+			if (runTimeCount < runTimeIndex && runTimeCount < runTimeQuick) countWin++;	
+			
+			
 		}// for
-		System.out.println("Wins QuickSort:" + quickWin + " IndexWin:" + indexWin);
+		System.out.println("Wins QuickSort:" + quickWin + " IndexWin:" + indexWin + " CountWin: " + countWin);
 	}// main
 }
