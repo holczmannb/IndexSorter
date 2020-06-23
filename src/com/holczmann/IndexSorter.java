@@ -109,8 +109,8 @@ public class IndexSorter {
 	 */
 	public static void main(String[] args) {
 		// Default size, range and print the sample
-		int size = 1000;
-		int range = 10000;
+		int size = 10;
+		int range = 100;
 		int numberOfSamples = 100;
 		boolean statisticOnly = false;
 		int quickWin = 0;
@@ -178,9 +178,9 @@ public class IndexSorter {
 			//long percentage = ((runTimeQuick - runTimeIndex) * 100) / runTimeQuick;
 			//System.out.println("Runtime reduction (QuickSort - IndexSort / QuickSort) : " + percentage + "% (" + (runTimeQuick - runTimeIndex) + "ns)" );
 			
-			if (runTimeQuick < runTimeIndex && runTimeQuick < runTimeCount) quickWin++;	
-			if (runTimeIndex < runTimeQuick && runTimeIndex < runTimeCount) indexWin++;	
-			if (runTimeCount < runTimeIndex && runTimeCount < runTimeQuick) countWin++;	
+			if (runTimeQuick < runTimeIndex && runTimeQuick < runTimeCount) quickWin++;
+			else if (runTimeIndex < runTimeQuick && runTimeIndex < runTimeCount) indexWin++;
+			else countWin++;	
 			
 			
 		}// for
