@@ -1,9 +1,11 @@
-# IndexSorter
+# IndexSort
 
 <B>Description:</B><BR><BR>
-Reference implementation for IndexSorting algorithm and compare the runtime with quick sort. <BR><BR>
+Reference implementation for IndexSort algorithm and compare the runtime with quick sort and the liner time counting sort. <BR><BR>
+ QuickSort: https://en.wikipedia.org/wiki/Quicksort<Br>
+ CountingSort: https://opendatastructures.org/ods-java/11_2_Counting_Sort_Radix_So.html<BR>
 
-Index sorting is an sorting algorithm what works on set of distinct natural numbers and can deliver better runtime performance than quicksort in many cases. This is not a generic sorting algorithm but works very effectively with positive unique integer values what is used in many business scenario.<BR>
+Index sort is an sorting algorithm what works on set of distinct natural numbers and can deliver better runtime performance than QuickSort and CountingSort in many cases. This is not a generic sorting algorithm but works very effectively with positive unique integer values what is used in many business scenario.<BR>
  
 <B>How to run reference implementation:</B><BR><BR>
 Download the /bin/IndexSorter.jar <BR>
@@ -44,33 +46,34 @@ Loop  i = min .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable a
  
  The time is always linear and O ( 2n + (max - min) ) in every case.<BR>
  n = 1000 then QuickSort needs 3000 steps in best case. IndexSort needs 2000 + (maximum - minimum value) steps in every case.<BR>
+ CountingSort has O (n + max) what is comparable with IndexSort but IndexSort on random datasets shows better performance.
 
 <B>Statistics:</B> <BR>
- Index sorter show better execution time in case of big array sizes.
+ Index sort shows the best execution time in case of big array sizes. There is no big exection time difference in the small arrays. <BR>
 <Table>
-<TR><TH>Number of Sample</TH><TH>Size of array</TH><TH>Number intervall 1..n</TH><TH>QuickSort Win</TH><TH>IndexSorter Win</TH></TR>
-<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	81</TD><TD>	19</TD></TR>
-<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	68</TD><TD>	12</TD></TR>
-<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	75</TD><TD>	25</TD></TR>
-<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	42</TD><TD>	58</TD></TR>
-<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	47</TD><TD>	53</TD></TR>
-<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	43</TD><TD>	57</TD></TR>
-<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	55</TD><TD>	45</TD></TR>
-<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	52</TD><TD>	48</TD></TR>
-<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	43</TD><TD>	57</TD></TR>
-<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	1</TD><TD>	99</TD></TR>
-<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	5</TD><TD>	95</TD></TR>
-<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	3</TD><TD>	97</TD></TR>
-<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	9</TD><TD>	91</TD></TR>
-<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	13</TD><TD>	87</TD></TR>
-<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	12</TD><TD>	88</TD></TR>
-<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	0</TD><TD>	100</TD></TR>
-<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	1</TD><TD>	99</TD></TR>
-<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	0</TD><TD>	100</TD></TR>
-<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	2</TD><TD>	98</TD></TR>
-<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	0</TD><TD>	100</TD></TR>
-<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	0</TD><TD>	100</TD></TR>
-<TR><TD>10</TD><TD>	100000</TD><TD>	1000000</TD><TD>0</TD><TD>	10</TD></TR>
+<TR><TH>Number of Sample</TH><TH>Size of array</TH><TH>Number intervall 1..n</TH><TH>QuickSort Wins</TH><TH>IndexSort Wins</TH><TH>CountingSort Wins</TH></TR>
+<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	81</TD><TD>16</TD><TD> 3</TD></TR>
+<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	92</TD><TD>	6</TD><TD>	2</TD></TR>
+<TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	89</TD><TD>	8</TD><TD>	3</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	38</TD><TD>	55</TD><TD>	7</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	50</TD><TD>	45</TD><TD>	5</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	100</TD><TD>	46</TD><TD>	50</TD><TD>	4</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	51</TD><TD>	43</TD><TD>	6</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	46</TD><TD>	44</TD><TD>	10</TD></TR>
+<TR><TD>100</TD><TD>	100</TD><TD>	1000</TD><TD>	48</TD><TD>	46</TD><TD>	6</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	3</TD><TD>	65</TD><TD>	32</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	3</TD><TD>	64</TD><TD>	33</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	1000</TD><TD>	2</TD><TD>	76</TD><TD>	22</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	7</TD><TD>	81</TD><TD>	12</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	8</TD><TD>	77</TD><TD>	15</TD></TR>
+<TR><TD>100</TD><TD>	1000</TD><TD>	10000</TD><TD>	6</TD><TD>	81</TD><TD>	13</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	0</TD><TD>	96</TD><TD>	4</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	0</TD><TD>	92</TD><TD>	8</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	10000</TD><TD>	0</TD><TD>	99</TD><TD>	1</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	0</TD><TD>	100</TD><TD>	0</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	0</TD><TD>	98</TD><TD>	2</TD></TR>
+<TR><TD>100</TD><TD>	10000</TD><TD>	100000</TD><TD>	0</TD><TD>	100</TD><TD>	0</TD></TR>
+<TR><TD>10</TD><TD>	100000</TD><TD>	1000000</TD><TD>0</TD><TD>	10</TD><TD>	0</TD></TR>
 </TABLE>
 
 <BR><B>Disadvantages and improvement oportunities</B> <BR>
