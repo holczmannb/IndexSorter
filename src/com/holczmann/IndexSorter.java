@@ -10,10 +10,25 @@ public class IndexSorter {
 	 * @param a: array as in/out parameter
 	 * @return runtime of the sorting
 	 */
-	public static long guicksort(int[] a) {
+	public static long quicksort(int[] a) {
 		long startTime = System.nanoTime();
 	
 		Arrays.sort(a);
+		
+		long finishTime = System.nanoTime();
+		long runTime = finishTime - startTime;
+		return runTime;
+	}
+	
+	/**
+	 * Java implemented bin sort
+	 * @param a: array as in/out parameter
+	 * @return runtime of the sorting
+	 */
+	public static long binsort(int[] a) {
+		long startTime = System.nanoTime();
+	
+		BinSorter.binsort(a);
 		
 		long finishTime = System.nanoTime();
 		long runTime = finishTime - startTime;
@@ -119,10 +134,11 @@ public class IndexSorter {
 		int size = 1000;
 		int range = 10000;
 		int numberOfSamples = 100;
-		boolean statisticOnly = false;
+		boolean statisticOnly = true;
 		int quickWin = 0;
 		int indexWin = 0;
 		int countWin = 0;
+		int binWin = 0;
 		
 		// Read the input parameters
 		if (args.length > 0) {
@@ -158,8 +174,9 @@ public class IndexSorter {
 			// QuickSort
 			int[] a = originalSample.clone();
 
-			long runTimeQuick = IndexSorter.guicksort(a);
-
+			//long runTimeQuick = IndexSorter.guicksort(a);
+			long runTimeQuick = IndexSorter.quicksort(a);
+			
 			System.out.println("QuickSort (" + runTimeQuick + "ns) ");
 			if (!statisticOnly)
 				System.out.println(Arrays.toString(a));
@@ -182,15 +199,28 @@ public class IndexSorter {
 			if (!statisticOnly)
 				System.out.println(Arrays.toString(a));
 			
+			// BinSort
+			a = originalSample.clone();
+
+			long runTimeBin = IndexSorter.binsort(a);
+
+			System.out.println("BinSort (" + runTimeBin + "ns) ");
+			if (!statisticOnly)
+				System.out.println(Arrays.toString(a));
+			
 			//long percentage = ((runTimeQuick - runTimeIndex) * 100) / runTimeQuick;
 			//System.out.println("Runtime reduction (QuickSort - IndexSort / QuickSort) : " + percentage + "% (" + (runTimeQuick - runTimeIndex) + "ns)" );
 			
-			if (runTimeQuick < runTimeIndex && runTimeQuick < runTimeCount) quickWin++;
-			else if (runTimeIndex < runTimeQuick && runTimeIndex < runTimeCount) indexWin++;
-			else countWin++;	
+			if (runTimeQuick < runTimeIndex && runTimeQuick < runTimeCount && runTimeQuick < runTimeBin) quickWin++;
+			else if (runTimeIndex < runTimeQuick && runTimeIndex < runTimeCount && runTimeIndex < runTimeBin) indexWin++;
+			else if (runTimeCount < runTimeQuick && runTimeCount < runTimeIndex && runTimeCount < runTimeBin) countWin++;
+			else binWin++;	
 			
 			
+			
+			
+					
 		}// for
-		System.out.println("Wins QuickSort:" + quickWin + " IndexWin:" + indexWin + " CountWin: " + countWin);
+		System.out.println("Wins QuickSort:" + quickWin + " IndexWin:" + indexWin + " CountWin: " + countWin + " binWin:" + binWin);
 	}// main
 }
