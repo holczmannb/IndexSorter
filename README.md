@@ -1,11 +1,12 @@
 # IndexSort
 
 <B>Description:</B><BR><BR>
-Reference implementation for IndexSort algorithm and compare the runtime with quick sort and the linear time counting sort. <BR><BR>
+Reference implementation for IndexSort algorithm and compare the runtime with quick sort and the linear time counting sort and bin sort. <BR><BR>
  QuickSort: https://en.wikipedia.org/wiki/Quicksort<Br>
  CountingSort: https://opendatastructures.org/ods-java/11_2_Counting_Sort_Radix_So.html<BR>
+ BinSort: https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/BinSort.html <BR>
 
-Index sort is an sorting algorithm what works on set of distinct natural numbers and can deliver better runtime performance than QuickSort and CountingSort in many cases. This is not a generic sorting algorithm but works very effectively with positive unique integer values what is used in many business scenario.<BR>
+Index sort is an sorting algorithm what works on set of distinct natural numbers and can deliver better runtime performance than QuickSort, CountingSort and BinSort in many cases. This is not a generic sorting algorithm but works very effectively with positive unique integer values what is used in many business scenario. It is based on the bin (bucket) sorting algorithm but utilize the unique numbers in the sortable array.<BR>
  
 <B>How to run reference implementation:</B><BR><BR>
 Download the /bin/IndexSorter.jar <BR>
@@ -44,12 +45,13 @@ Loop  i = min .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable a
  2. Setting the helper array value: n step.<BR>
  3. Writing back the index values to original: (max - min) step, where max and min are the maximum and minimum values in the array.<BR>
  
- The time is always linear and O ( 2n + (max - min) ) in every case.<BR>
+ The time is always linear and O ( 2n + max ) in every case.<BR>
  n = 1000 then QuickSort needs 3000 steps in best case. IndexSort needs 2000 + (maximum - minimum value) steps in every case.<BR>
  CountingSort has O (n + max) what is comparable with IndexSort but IndexSort on random datasets shows better performance.
 
 <B>Statistics:</B> <BR>
- Index sort shows the best execution time in case of big array sizes. There is no big exection time difference in the small arrays. <BR>
+ Index sort shows the best execution time in case of big array sizes. There is no big exection time difference in the small arrays. 
+ Index sort delivers always better results then BinSort in any sample size<BR>
 <Table>
 <TR><TH>Number of Sample</TH><TH>Size of array</TH><TH>Number intervall 1..n</TH><TH>QuickSort Wins</TH><TH>IndexSort Wins</TH><TH>CountingSort Wins</TH></TR>
 <TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	81</TD><TD>16</TD><TD> 3</TD></TR>
