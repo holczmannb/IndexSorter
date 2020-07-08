@@ -45,7 +45,7 @@ Loop  i = min .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable a
  2. Setting the helper array value: n step.<BR>
  3. Writing back the index values to original: (max - min) step, where max and min are the maximum and minimum values in the array.<BR>
  
- The time is always linear and O ( 2n + (max - min) ) in every case.<BR>
+ The time is always linear and O ( 2n + max ) in every case.<BR>
  n = 1000 then QuickSort needs 3000 steps in best case. IndexSort needs 2000 + (maximum - minimum value) steps in every case.<BR>
  CountingSort has O (n + max) what is comparable with IndexSort but IndexSort on random datasets shows better performance.
 
