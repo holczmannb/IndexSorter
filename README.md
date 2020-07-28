@@ -17,7 +17,7 @@ Parameters: <BR>
  param3: range of the natural numeric numbers (like 1000)<BR>
  param4: print statistic only and skip the array printouts. (like true)<BR>
 
-<B>Algoritm with pseudocode:</B><BR><BR>
+<B>Algorithm with pseudocode:</B><BR><BR>
 array a; // sortable array<BR>
 array b; // helper array<BR>
 n = length(a) // length of the sortable array<BR>
@@ -51,7 +51,7 @@ Loop  i = min .. max {if (b[i]) then a[pos++] = i}     // rewrite the sortable a
 
 <B>Statistics:</B> <BR>
  Index sort shows the best execution time in case of big array sizes. There is no big exection time difference in the small arrays. 
- Index sort delivers always better results then BinSort in any sample size<BR>
+ Index sort delivers always better results than BinSort in any sample size<BR>
 <Table>
 <TR><TH>Number of Sample</TH><TH>Size of array</TH><TH>Number intervall 1..n</TH><TH>QuickSort Wins</TH><TH>IndexSort Wins</TH><TH>CountingSort Wins</TH></TR>
 <TR><TD>100</TD><TD>	10</TD><TD>	100</TD><TD>	81</TD><TD>16</TD><TD> 3</TD></TR>
